@@ -7,6 +7,10 @@ $(function() {
 });
 
 function display() {
+	const cont = $(".container")
+	cont.append("<h4>Have Fun^</h4>");
+	cont.append("<p>Play A: o</p>");
+	cont.append("<p>Play B: x</p>");
 
 }
 
