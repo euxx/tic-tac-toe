@@ -1,0 +1,47 @@
+
+/*
+browser-sync start --server --files "**/*.css, **/*.html"
+browser-sync start --server --files "**"
+*/
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font: 16px/24px helvetica,arial,sans-serif;
+    color: #333;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.box {
+    display: table;
+    margin: 10px auto;
+}
+
+.row {
+    display: table-row;
+}
+
+.grid {
+    display: table-cell;
+    border: 1px solid #ddd;
+    border-radius: 2x;
+}
+.grid:hover {
+
+}
