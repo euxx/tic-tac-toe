@@ -28,6 +28,7 @@ function play() {
 			} else if (confirm("It's a tie...")) {
 				playerA.addClass("play-now");
 				$(".grid").empty();
+				count = 0;
 			}
 		} else if (count > 4) {
 			finish();
@@ -36,19 +37,19 @@ function play() {
 }
 
 function finish() {
-	let pos = []
-	pos.push([[0, 0], [1, 1], [2, 2]]);
-	pos.push([[0, 2], [1, 1], [2, 0]]);
+	let posArray = [];
+	posArray.push([[0, 0], [1, 1], [2, 2]]);
+	posArray.push([[0, 2], [1, 1], [2, 0]]);
 
 	let i = 0;
 	for ( ; i < 3; i++) {
-		pos.push([[i, 0], [i, 1], [i, 2]]);
-		pos.push([[0, i], [1, i], [2, i]]);
+		posArray.push([[i, 0], [i, 1], [i, 2]]);
+		posArray.push([[0, i], [1, i], [2, i]]);
 	}
 
 	i = 0;
-	for ( ; i < 6; i++) {
-		if(compare(pos[i])) {
+	for ( ; i < 8; i++) {
+		if(compare(posArray[i])) {
 			return true;
 		}
 	}
@@ -57,6 +58,7 @@ function finish() {
 function compare([[m1, n1], [m2, n2], [m3, n3]]) {
 	const row = $(".row");
 	const player = $(".player");
+	const playerA = $(".player-a");
 	const a = row.eq(m1).find(".grid").eq(n1).text();
 	const b = row.eq(m2).find(".grid").eq(n2).text();
 	const c = row.eq(m3).find(".grid").eq(n3).text();
