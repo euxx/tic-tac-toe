@@ -62,17 +62,19 @@ function compare([[m1, n1], [m2, n2], [m3, n3]]) {
 	const a = row.eq(m1).find(".grid").eq(n1).text();
 	const b = row.eq(m2).find(".grid").eq(n2).text();
 	const c = row.eq(m3).find(".grid").eq(n3).text();
+	let conf;
 	if (a != "" && a === b && b === c) {
 		player.removeClass("play-now");
 		if (a === "o") {
-			if(confirm("Congratulation! Player A win")) {
-				window.location.reload();
-			}
+			conf = confirm("Congratulation! Player A win");
 		} else if (a === "x") {
-			if(confirm("Congratulation! Player B win")) {
-				playerA.addClass("play-now");
-				$(".grid").empty();
-			}
+			conf = confirm("Congratulation! Player B win");
+		}
+		if (conf) {
+			// window.location.reload();
+			playerA.addClass("play-now");
+			$(".grid").empty();
+			count = 0;
 		}
 		return true;
 	}
