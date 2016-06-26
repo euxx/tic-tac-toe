@@ -71,3 +71,11 @@ p span {
 .play-now span {
     background: #eee;
 }
+
+.player .its-you {
+    display: none;
+}
+
+.play-now .its-you {
+    display: inline;
+}
