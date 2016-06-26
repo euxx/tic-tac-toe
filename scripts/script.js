@@ -25,8 +25,10 @@ function play() {
 			player.removeClass("play-now");
 			if (finish()) {
 				return;
+			} else if (confirm("It's a tie...")) {
+				playerA.addClass("play-now");
+				$(".grid").empty();
 			}
-			console.log("It's a tie...");
 		} else if (count > 4) {
 			finish();
 		}
@@ -61,11 +63,16 @@ function compare([[m1, n1], [m2, n2], [m3, n3]]) {
 	if (a != "" && a === b && b === c) {
 		player.removeClass("play-now");
 		if (a === "o") {
-			console.log("Congratulation! Player A win");
+			if(confirm("Congratulation! Player A win")) {
+				window.location.reload();
+			}
 		} else if (a === "x") {
-			console.log("Congratulation! Player B win");
+			if(confirm("Congratulation! Player B win")) {
+				playerA.addClass("play-now");
+				$(".grid").empty();
+			}
 		}
-		return true
+		return true;
 	}
 	return false;
 }
