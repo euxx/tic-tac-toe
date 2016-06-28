@@ -12,6 +12,7 @@ function play() {
 	const playerA = $(".player-a");
 	const player = $(".player");
 	const clickNow = $(this);
+
 	if (clickNow.text() === "") {
 		if (playerA.hasClass("play-now")) {
 			clickNow.text("o");
@@ -21,6 +22,7 @@ function play() {
 			player.removeClass("play-now").eq(0).addClass("play-now")
 		}
 		count++;
+
 		if (count === 9) {
 			player.removeClass("play-now");
 			if (finish()) {
@@ -63,6 +65,7 @@ function compare([[m1, n1], [m2, n2], [m3, n3]]) {
 	const b = row.eq(m2).find(".grid").eq(n2).text();
 	const c = row.eq(m3).find(".grid").eq(n3).text();
 	let conf;
+
 	if (a != "" && a === b && b === c) {
 		player.removeClass("play-now");
 		if (a === "o") {
